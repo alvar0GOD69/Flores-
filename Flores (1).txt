@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti 💛</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: #ff2e8b;
+}
+
+/* Fondo animado */
+.hearts {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #ff99cc 10%, transparent 10%);
+  background-size: 40px 40px;
+  animation: move 10s linear infinite;
+  background-position: 0 0;
+}
+
+@keyframes move {
+  from { background-position: 0 0; }
+  to { background-position: 0 400px; }
+}
+
+/* Tarjeta */
+.card {
+  position: relative;
+  z-index: 2;
+  background: #f5e6d8;
+  padding: 20px;
+  border-radius: 20px;
+  width: 320px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+/* Árbol */
+.tree {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+}
+
+/* Flores */
+.flower {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 6px orange;
+  animation: float 3s infinite ease-in-out;
+  will-change: transform;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Tronco */
+.tree::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  width: 20px;
+  height: 50px;
+  background: brown;
+  transform: translateX(-50%);
+}
+h2 { font-size: 20px; }
+p { font-size: 15px; }
+</style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<div class="card">
+  <h2>Flores Amarillas para el amor de mi vida:</h2>
+
+  <p>Si pudiera elegir un lugar seguro, sería a tu lado.</p>
+  <p>Cuanto más tiempo estoy contigo más te amo.</p>
+
+  <h3>— I Love You! —</h3>
+
+  <p id="contador"></p>
+
+  <div class="tree" id="tree"></div>
+</div>
+
+<script>
+/* CONTADOR (CAMBIA ESTA FECHA) */
+const inicio = new Date("2025-04-01T00:00:00");
+
+function actualizarContador() {
+  const ahora = new Date();
+  const diff = ahora - inicio;
+
+  const d = Math.floor(diff / (1000*60*60*24));
+  const h = Math.floor((diff / (1000*60*60)) % 24);
+  const m = Math.floor((diff / (1000*60)) % 60);
+  const s = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("contador").innerHTML =
+    `Mi amor por ti comenzó hace...<br>${d} días ${h} horas ${m} min ${s} seg`;
+}
+
+setInterval(actualizarContador, 1000);
+
+
+/* ÁRBOL CORAZÓN */
+const tree = document.getElementById("tree");
+
+for (let i = 0; i < 250; i++) {
+  const flower = document.createElement("div");
+  flower.className = "flower";
+
+  let t = Math.random() * Math.PI * 2;
+  let x = 16 * Math.pow(Math.sin(t), 3);
+  let y = -(13*Math.cos(t) - 5*Math.cos(2*t) - 2*Math.cos(3*t) - Math.cos(4*t));
+
+  flower.style.left = (x * 6 + 100) + "px";
+  flower.style.top = (y * 6 + 100) + "px";
+
+  tree.appendChild(flower);
+}
+</script>
+
+</body>
+</html>
