@@ -22,11 +22,12 @@ body {
   background-image: radial-gradient(circle, #ff99cc 10%, transparent 10%);
   background-size: 40px 40px;
   animation: move 10s linear infinite;
+  background-position: 0 0;
 }
 
 @keyframes move {
   from { background-position: 0 0; }
-  to { background-position: 0 100%; }
+  to { background-position: 0 400px; }
 }
 
 /* Tarjeta */
@@ -78,7 +79,6 @@ body {
   background: brown;
   transform: translateX(-50%);
 }
-
 h2 { font-size: 16px; }
 p { font-size: 14px; }
 </style>
