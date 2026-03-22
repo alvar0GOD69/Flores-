@@ -55,12 +55,13 @@ body {
 /* Flores */
 .flower {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: yellow;
   border-radius: 50%;
   box-shadow: 0 0 6px orange;
   animation: float 3s infinite ease-in-out;
+  will-change: transform;
 }
 
 @keyframes float {
@@ -79,8 +80,8 @@ body {
   background: brown;
   transform: translateX(-50%);
 }
-h2 { font-size: 16px; }
-p { font-size: 14px; }
+h2 { font-size: 20px; }
+p { font-size: 15px; }
 </style>
 </head>
 
