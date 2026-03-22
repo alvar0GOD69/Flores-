@@ -114,8 +114,8 @@ function actualizarContador() {
   const m = Math.floor((diff / (1000*60)) % 60);
   const s = Math.floor((diff / 1000) % 60);
 
-  document.getElementById("contador").innerText =
-    `Mi amor por ti comenzó hace...\n${d} días ${h} horas ${m} min ${s} seg`;
+  document.getElementById("contador").innerHTML =
+    `Mi amor por ti comenzó hace...<br>${d} días ${h} horas ${m} min ${s} seg`;
 }
 
 setInterval(actualizarContador, 1000);
