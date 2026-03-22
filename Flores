@@ -103,7 +103,7 @@ p { font-size: 14px; }
 
 <script>
 /* CONTADOR (CAMBIA ESTA FECHA) */
-const inicio = new Date("2025-01-01T00:00:00");
+const inicio = new Date("2025-04-01T00:00:00");
 
 function actualizarContador() {
   const ahora = new Date();
